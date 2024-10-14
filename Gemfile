@@ -68,3 +68,13 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "devise", "~> 4.9"
+gem "rspec-rails", "~> 7.0"
+gem "kaminari", "~> 1.2"
+gem "friendly_id", "~> 5.5"
+gem "pry", "~> 0.14.2"
+gem "launchy", "~> 3.0"
+gem "simplecov", "~> 0.22.0"
+gem "shoulda-matchers", "~> 6.4"
+gem "orderly", "~> 0.1.1"
