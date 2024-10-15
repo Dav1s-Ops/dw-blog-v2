@@ -13,6 +13,20 @@
 
   <body>
     <main class="container mx-auto mt-28 px-5 flex">
+      <% if user_signed_in? %>
+        <%= link_to 'Dashboard', admin_dashboard_path %> |
+        <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= button_to 'Login', new_user_session_path %>
+      <% end %>
+
+      <% flash.each do |key, message| %>
+        <div class="flash-message <%= key %> bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
+          <p class="font-bold"><%= key.capitalize %></p>
+          <p><%= message %></p>
+        </div>
+      <% end %>
+
       <%= yield %>
     </main>
   </body>
