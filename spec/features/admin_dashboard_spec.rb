@@ -18,6 +18,6 @@ RSpec.feature "AdminDashboard", type: :feature do
   scenario "User sees posts by category" do
     visit admin_dashboard_path
 
-    expect(page).to have_content('Post by Category')
+    expect(page).to have_content('Posts by Category')
   end
 end
