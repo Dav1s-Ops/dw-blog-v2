@@ -1,4 +1,41 @@
 <div>
-  <h1 class="font-bold text-4xl">Dashboard</h1>
-  <p>Find me in app/views/admin/dashboard/index.html.erb</p>
+  <h1 class="font-bold text-4xl">Admin Dashboard</h1>
+  
+  <div class="stats">
+    <div class="stat-card">
+      <h2>Total Posts</h2>
+      <p><%= @total_posts %></p>
+    </div>
+    <div class="stat-card">
+      <h2>Total Topics</h2>
+      <p><%= @total_topics %></p>
+    </div>
+    <div class="stat-card">
+      <h2>Total Tags</h2>
+      <p><%= @total_tags %></p>
+    </div>
+    <div class="stat-card">
+      <h2>Draft Posts</h2>
+      <p><%= @draft_posts %></p>
+    </div>
+  </div>
+
+  <h2>Posts by Category</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Total Posts</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts_by_category.each do |category, count| %>
+        <tr>
+          <td><%= category %></td>
+          <td><%= count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
 </div>
