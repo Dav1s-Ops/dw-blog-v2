@@ -50,6 +50,12 @@ gem "image_processing", "~> 1.2"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
+  gem "pry", "~> 0.14.2"
+  gem "launchy", "~> 3.0"
+  gem "simplecov", "~> 0.22.0"
+  gem "shoulda-matchers", "~> 6.4"
+  gem "orderly", "~> 0.1.1"
+  gem "rspec-rails", "~> 7.0"
 end
 
 group :development do
@@ -70,11 +76,5 @@ group :test do
 end
 
 gem "devise", "~> 4.9"
-gem "rspec-rails", "~> 7.0"
 gem "kaminari", "~> 1.2"
 gem "friendly_id", "~> 5.5"
-gem "pry", "~> 0.14.2"
-gem "launchy", "~> 3.0"
-gem "simplecov", "~> 0.22.0"
-gem "shoulda-matchers", "~> 6.4"
-gem "orderly", "~> 0.1.1"
