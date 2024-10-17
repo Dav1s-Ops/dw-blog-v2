@@ -9,7 +9,7 @@ WORKDIR /rails
 
 # Install packages needed for building gems and node dependencies
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libpq-dev nodejs yarn && \
+    apt-get install --no-install-recommends -y build-essential git libpq-dev nodejs npm && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy Gemfile and Gemfile.lock
