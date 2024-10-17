@@ -1,33 +1,38 @@
-<div>
-  <h1 class="font-bold text-4xl">Admin::Posts#index</h1>
-  
-  <%= form_with url: admin_posts_path, method: :get, local: true do |form| %>
-    <%= form.label :title_cont, 'Search' %>
-    <%= form.text_field :title_cont %>
-    <%= form.submit 'Search' %>
-  <% end %>
-  
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Slug</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @posts.each do |post| %>
+<div class="p-8">
+  <h1 class="font-bold text-4xl mb-8">Posts Management</h1>
+  <div class="overflow-x-auto rounded-lg shadow-md">
+    <table class="table-container">
+      <thead>
         <tr>
-          <td> <%= post.id %> </td>
-          <td> <%= post.title %> </td>
-          <td> <%= post.slug %> </td>
-          <td>
-            <%= link_to 'Edit', edit_admin_post_path(post), method: :edit %>
-            <%= link_to 'Delete', admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %>
-          </td>
+          <th class="table-header">ID</th>
+          <th class="table-header">Title</th>
+          <th class="table-header">Slug</th>
+          <th class="table-header">Actions</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody class="text-gray-700">
+        <% @posts.each do |post| %>
+          <tr class="hover:bg-gray-100">
+            <td class="table-cell"><%= post.id %></td>
+            <td class="table-cell">
+              <div class="truncate w-25">
+                <%= post.title %>
+              </div>
+            </td>
+            <td class="table-cell">
+              <div class="truncate w-25">
+                <%= post.title %>
+              </div>
+            </td>
+            <td class="table-cell">
+              <div class="flex space-x-2">
+                <%= link_to 'Edit', edit_admin_post_path(post), class: "btn-secondary" %>
+                <%= link_to 'Delete', admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-danger" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
