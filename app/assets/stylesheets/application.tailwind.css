@@ -2,13 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
+@import 'actiontext.css';
 
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
+/* ::::::::::: application.html.erb Styling ::::::::::: */
+
+/* Navbar */
+.admin-bar {
+  @apply bg-gray-800 text-white shadow-md
 }
 
-*/
-@import 'actiontext.css';
+.nav-link {
+  @apply text-white text-sm font-medium hover:text-gray-300
+}
+
+.nav-button {
+  @apply bg-red-500 hover:bg-red-600 text-white text-sm font-medium py-2 px-2 rounded
+}
+
+.nav-button-blue {
+  @apply bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 px-2 rounded
+}
+
+/* Flash Alerts */
+.flash-message {
+  @apply bg-blue-100 border border-blue-500 text-blue-700 px-4 py-3 rounded shadow-md mb-4 max-w-md mx-auto;
+}
+
+.flash-message.notice {
+  @apply bg-green-100 border-green-500 text-green-700;
+}
+
+.flash-message.alert {
+  @apply bg-red-100 border-red-500 text-red-700;
+}
+
+/* Buttons */
+.btn-primary {
+  @apply bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500
+}
+
+.btn-secondary {
+  @apply bg-gray-500 hover:bg-gray-600 text-white text-sm font-medium py-2 px-4 rounded
+}
+
+.btn-danger {
+  @apply bg-red-500 hover:bg-red-600 text-white text-sm font-medium py-2 px-4 rounded
+}
+
+/* Table Styling */
+.table-container {
+  @apply min-w-full bg-white
+}
+
+.table-header {
+  @apply py-3 px-6 bg-gray-200 font-bold uppercase text-left text-sm text-gray-600 border-b border-gray-200
+}
+
+.table-cell {
+  @apply py-3 px-6 border-b border-gray-200 truncate w-10
+}
+
+.table-row:hover {
+  @apply bg-gray-100
+}
+
+.table-auto {
+  @apply w-full text-left border-collapse
+}
+
+.table-auto th {
+  @apply p-2 border-b-2 font-semibold
+}
+
+.table-auto td {
+  @apply p-2 border-b
+}
+
+/* ::::::::::: Login Styling ::::::::::: */
+
+.form-input {
+  @apply border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.form-checkbox {
+  @apply h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded;
+}
+
+.form-link {
+  @apply text-blue-600 hover:text-blue-700 font-medium;
+}
+
+/* ::::::::::: Admin::Dashboard Styling ::::::::::: */
+.stat-card {
+  @apply bg-white p-6 rounded-lg shadow-md
+}
+
+.stat-card, h2 {
+  @apply text-lg font-medium mb-2
+}
+
+.stat-card, p {
+  @apply text-2xl font-bold text-center
+}
+
+.stats {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8
+}
