@@ -7,6 +7,7 @@
           <th class="table-header">ID</th>
           <th class="table-header">Title</th>
           <th class="table-header">Slug</th>
+          <th class="table-header">Status</th>
           <th class="table-header">Actions</th>
         </tr>
       </thead>
@@ -21,18 +22,28 @@
             </td>
             <td class="table-cell">
               <div class="truncate w-25">
-                <%= post.title %>
+                <%= post.slug %>
               </div>
             </td>
             <td class="table-cell">
+              <%= post.status.capitalize %>
+            </td>
+            <td class="table-cell">
               <div class="flex space-x-2">
-                <%= link_to 'Edit', edit_admin_post_path(post), class: "btn-secondary" %>
-                <%= link_to 'Delete', admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-danger" %>
+                <%= link_to edit_admin_post_path(post), class: "btn-secondary" do %>
+                  <%= image_tag('edit-white.svg', alt: 'Edit', class: 'w-4 h-4') %>
+                <% end %>
+                <%= link_to admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-danger" do %>
+                  <%= image_tag('cross-white.svg', alt: 'Delete', class: 'w-4 h-4') %>
+                <% end %>
               </div>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
+  </div>
+  <div class="mt-6">
+    <%= paginate @posts %>
   </div>
 </div>
