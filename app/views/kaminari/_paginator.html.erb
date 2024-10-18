@@ -1,0 +1,21 @@
+<nav role="navigation" aria-label="Pagination Navigation" class="flex justify-center mt-4 space-x-2">
+  <% if @posts.prev_page %>
+    <%= link_to '< Previous'.html_safe, url_for(page: @posts.prev_page), class: "px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400" %>
+  <% end %>
+
+  <%
+=begin%>
+ <% @posts.each_page do |page| %>
+    <% if page.current? %>
+      <span class="px-4 py-2 bg-blue-500 text-white rounded-lg"><%= page.number %></span>
+    <% else %>
+      <%= link_to page.number, url_for(page: page), class: "px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400" %>
+    <% end %>
+  <% end %> 
+<%
+=end%>
+
+  <% if @posts.next_page %>
+    <%= link_to 'Next >'.html_safe, url_for(page: @posts.next_page), class: "px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400" %>
+  <% end %>
+</nav>
