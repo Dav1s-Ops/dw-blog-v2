@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'dashboard', to: 'dashboard#index', as: 'dashboard'
     resources :posts
+    resources :categories
+    resources :tags
   end
 
   # Set the root path to /posts (posts#index)
