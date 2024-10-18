@@ -31,7 +31,7 @@ end
 puts "—————— Tags created: #{tags.map(&:name).join(', ')}"
 puts "Creating posts..."
 
-10.times do |i|
+50.times do |i|
   post = Post.create!(
     title: "Sample Post #{i + 1}",
     content: "This is a sample post with **bold text**, _italic text_, and `inline code` #{i + 1}.",
