@@ -38,15 +38,15 @@
 
 /* Buttons */
 .btn-primary {
-  @apply bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500
+  @apply bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 px-4 m-0 rounded focus:outline-none focus:ring-2 focus:ring-blue-500
 }
 
 .btn-secondary {
-  @apply bg-gray-500 hover:bg-gray-600 text-white text-sm font-medium py-2 px-4 rounded
+  @apply bg-gray-500 hover:bg-gray-600 text-white text-xs font-medium py-1 px-2 m-0 rounded
 }
 
 .btn-danger {
-  @apply bg-red-500 hover:bg-red-600 text-white text-sm font-medium py-2 px-4 rounded
+  @apply bg-red-500 hover:bg-red-600 text-white text-xs font-medium py-1 px-2 m-0 rounded
 }
 
 /* Table Styling */
@@ -55,11 +55,11 @@
 }
 
 .table-header {
-  @apply py-3 px-6 bg-gray-200 font-bold uppercase text-left text-sm text-gray-600 border-b border-gray-200
+  @apply py-2 px-6 bg-gray-200 font-bold uppercase text-left text-sm text-gray-600 border-b border-gray-200
 }
 
 .table-cell {
-  @apply py-3 px-6 border-b border-gray-200 truncate w-10
+  @apply py-1 px-6 border-b border-gray-200 truncate w-10
 }
 
 .table-row:hover {
