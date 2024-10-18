@@ -8,7 +8,7 @@ RSpec.feature "UserAuthentication", type: :feature do
     
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-    click_button 'Log in'
+    find('input.btn-primary').click
 
     expect(page).to have_content('Signed in successfully')
     expect(page).to have_button('Logout')
