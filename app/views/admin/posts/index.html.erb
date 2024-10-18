@@ -16,14 +16,10 @@
           <tr class="hover:bg-gray-100">
             <td class="table-cell"><%= post.id %></td>
             <td class="table-cell">
-              <div class="truncate w-25">
-                <%= post.title %>
-              </div>
+              <%= truncate(post.title, length: 20) %>
             </td>
             <td class="table-cell">
-              <div class="truncate w-25">
-                <%= post.slug %>
-              </div>
+              <%= truncate(post.slug, length: 20) %>
             </td>
             <td class="table-cell">
               <%= post.status.capitalize %>
