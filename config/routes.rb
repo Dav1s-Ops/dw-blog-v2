@@ -2,12 +2,6 @@ Rails.application.routes.draw do
   devise_for :users, skip: :registrations
   
   namespace :admin do
-    get 'tags/index'
-    get 'tags/new'
-    get 'tags/create'
-    get 'tags/edit'
-    get 'tags/update'
-    get 'tags/destroy'
     get 'dashboard', to: 'dashboard#index', as: 'dashboard'
     resources :posts
     resources :categories
