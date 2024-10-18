@@ -45,5 +45,15 @@
     <main class="container mx-auto mt-8 px-5">
       <%= yield %>
     </main>
+
+    <footer class="footer">
+      <div class="container mx-auto py-4 px-5 flex justify-between items-center">
+        <p class="text-gray-300 text-sm">&copy; <%= Time.current.year %> Davis Weimer</p>
+        <div class="flex space-x-4">
+          <%= link_to 'About', class: 'footer-link' %>
+          <%= link_to 'Contact', class: 'footer-link' %>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
