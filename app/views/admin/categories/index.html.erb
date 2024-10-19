@@ -1,4 +1,35 @@
-<div>
-  <h1 class="font-bold text-4xl">Admin::Categories#index</h1>
-  <p>Find me in app/views/admin/categories/index.html.erb</p>
+<div class="p-8">
+  <h1 class="font-bold text-4xl mb-6">Categories</h1>
+
+  <div class="mb-4">
+    <%= link_to 'Add New Category', new_admin_category_path, class: 'btn-primary' %>
+  </div>
+
+  <div class="overflow-x-auto rounded-lg shadow-md">
+    <table class="min-w-full bg-white">
+      <thead>
+        <tr>
+          <th class="table-header">Name</th>
+          <th class="table-header">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="text-gray-700">
+        <% @categories.each do |category| %>
+          <tr class="hover:bg-gray-100">
+            <td class="table-cell"><%= category.name %></td>
+            <td class="table-cell">
+              <div class="flex space-x-2">
+                <%= link_to edit_admin_category_path(category), class: "btn-secondary" do %>
+                  <%= image_tag('edit-white.svg', alt: 'Edit', class: 'w-4 h-4') %>
+                <% end %>
+                <%= button_to admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-danger" do %>
+                  <%= image_tag('cross-white.svg', alt: 'Delete', class: 'w-4 h-4') %>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

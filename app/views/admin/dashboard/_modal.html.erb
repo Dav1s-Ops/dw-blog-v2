@@ -1,0 +1,39 @@
+<div data-modal-target="modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white rounded-lg overflow-hidden shadow-xl max-w-md w-full">
+      <div class="p-4">
+        <h2 class="text-xl font-bold mb-4">Categories</h2>
+        <div class="mb-4">
+          <%= link_to 'Add New Category', new_admin_category_path, class: 'btn-primary' %>
+        </div>
+        <table class="min-w-full bg-white">
+          <thead>
+            <tr>
+              <th class="table-header">Name</th>
+              <th class="table-header">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700">
+            <% @categories.each do |category| %>
+              <tr class="hover:bg-gray-100">
+                <td class="table-cell"><%= category.name %></td>
+                <td class="table-cell">
+                  <div class="flex space-x-2">
+                    <%= link_to edit_admin_category_path(category), class: "btn-secondary" do %>
+                      <%= image_tag('edit-white.svg', alt: 'Edit', class: 'w-4 h-4') %>
+                    <% end %>
+                    <%= button_to admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-danger" do %>
+                      <%= image_tag('cross-white.svg', alt: 'Delete', class: 'w-4 h-4') %>
+                    <% end %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="mt-4 flex justify-end">
+          <button data-action="click->modal#close" class="btn-secondary">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
