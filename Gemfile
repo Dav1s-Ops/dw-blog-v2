@@ -76,5 +76,5 @@ group :test do
 end
 
 gem "devise", "~> 4.9"
-gem "kaminari", "~> 1.2"
 gem "friendly_id", "~> 5.5"
+gem "pagy", "~> 9.1"
