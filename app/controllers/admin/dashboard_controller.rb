@@ -6,5 +6,7 @@ class Admin::DashboardController < ApplicationController
     @total_tags = Tag.count
     @draft_posts = Post.where(status: 'Draft').count
     @posts_by_category = Category.joins(:posts).group('categories.name').count
+    @categories = Category.all.order(:name)
+    @tags = Tag.all.order(:name)
   end
 end
