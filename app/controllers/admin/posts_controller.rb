@@ -1,7 +1,7 @@
 class Admin::PostsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @posts = Post.page(params[:page]).per(10)
+    @pagy, @posts = pagy(Post.order(created_at: :desc), limit: 10)
   end
 
   def show

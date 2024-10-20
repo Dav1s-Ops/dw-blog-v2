@@ -39,7 +39,7 @@
       </tbody>
     </table>
   </div>
-  <div class="mt-6">
-    <%= paginate @posts %>
+  <div class="mt-6 flex items-center justify-center">
+    <%= raw(pagy_nav(@pagy)) %>
   </div>
 </div>
