@@ -8,7 +8,8 @@ class Post < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  validates :title, :content, presence: true
+  validates :title, presence: true, uniqueness: true
+  validates :content, presence: true
 
   enum status: { draft: "draft", publish: "publish" }
 end
