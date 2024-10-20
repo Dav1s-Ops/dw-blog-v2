@@ -29,7 +29,7 @@
                 <%= link_to edit_admin_post_path(post), class: "btn-secondary" do %>
                   <%= image_tag('edit-white.svg', alt: 'Edit', class: 'w-4 h-4') %>
                 <% end %>
-                <%= link_to admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-danger" do %>
+                <%= link_to "#", class: "btn-danger", onclick: "openModal('#{admin_post_path(post)}')" do %>
                   <%= image_tag('cross-white.svg', alt: 'Delete', class: 'w-4 h-4') %>
                 <% end %>
               </div>
@@ -39,7 +39,35 @@
       </tbody>
     </table>
   </div>
+  
   <div class="mt-6 flex items-center justify-center">
     <%= raw(pagy_nav(@pagy)) %>
   </div>
+
+  <div id="confirmModal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+      <h2 class="text-xl font-bold mb-4">Confirm Deletion</h2>
+      <p class="mb-6">Are you sure you want to proceed with deletion?</p>
+      <div class="flex justify-end space-x-2">
+        <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+        
+        <form id="deleteForm" method="POST" class="inline">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit" class="btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script>
+  function openModal(url) {
+    document.getElementById('deleteForm').action = url;
+    document.getElementById('confirmModal').classList.remove('hidden');
+  }
+
+  function closeModal() {
+    document.getElementById('confirmModal').classList.add('hidden');
+  }
+</script>
