@@ -10,7 +10,7 @@ RSpec.feature "AdminDashboard", type: :feature do
     visit admin_dashboard_path
 
     expect(page).to have_content('Total Posts')
-    expect(page).to have_content('Total Topics')
+    expect(page).to have_content('Total Categories')
     expect(page).to have_content('Total Tags')
     expect(page).to have_content('Draft Posts')
   end
