@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'pagy.tailwind.css';
 @import 'actiontext.css';
 
 /* ::::::::::: application.html.erb Styling ::::::::::: */
