@@ -1,5 +1,4 @@
-class Admin::DashboardController < ApplicationController
-  before_action :authenticate_user!
+class Admin::DashboardController < Admin::ApplicationController
   def index
     @total_posts = Post.count
     @total_categories = Category.count
