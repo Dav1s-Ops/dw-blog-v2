@@ -1,46 +1,30 @@
 require 'rails_helper'
 
 RSpec.describe "Admin::Categories", type: :request do
+  let(:user) { User.create(email: 'blogboy@example.com', password: 'password') }
+  let(:category) { Category.create!(name: 'category_name') }
+  before do
+    sign_in user
+  end
+
   describe "GET /index" do
-    xit "returns http success" do
-      get "/admin/categories/index"
+    it "returns http success" do
+      get "/admin/categories"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /new" do
-    xit "returns http success" do
+    it "returns http success" do
       get "/admin/categories/new"
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /create" do
-    xit "returns http success" do
-      get "/admin/categories/create"
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   describe "GET /edit" do
-    xit "returns http success" do
-      get "/admin/categories/edit"
+    it "returns http success" do
+      get "/admin/categories/#{category.id}/edit"
       expect(response).to have_http_status(:success)
     end
   end
-
-  describe "GET /update" do
-    xit "returns http success" do
-      get "/admin/categories/update"
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET /destroy" do
-    xit "returns http success" do
-      get "/admin/categories/destroy"
-      expect(response).to have_http_status(:success)
-    end
-  end
-
 end

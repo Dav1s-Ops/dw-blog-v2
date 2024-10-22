@@ -1,46 +1,30 @@
 require 'rails_helper'
 
 RSpec.describe "Admin::Tags", type: :request do
+  let(:user) { User.create(email: 'blogboy@example.com', password: 'password') }
+  let(:tag) { Tag.create(name: 'tag_name') }
+  before do
+    sign_in user
+  end
+
   describe "GET /index" do
-    xit "returns http success" do
-      get "/admin/tags/index"
+    it "returns http success" do
+      get "/admin/tags"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /new" do
-    xit "returns http success" do
+    it "returns http success" do
       get "/admin/tags/new"
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /create" do
-    xit "returns http success" do
-      get "/admin/tags/create"
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   describe "GET /edit" do
-    xit "returns http success" do
-      get "/admin/tags/edit"
+    it "returns http success" do
+      get "/admin/tags/#{tag.id}/edit"
       expect(response).to have_http_status(:success)
     end
   end
-
-  describe "GET /update" do
-    xit "returns http success" do
-      get "/admin/tags/update"
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET /destroy" do
-    xit "returns http success" do
-      get "/admin/tags/destroy"
-      expect(response).to have_http_status(:success)
-    end
-  end
-
 end
