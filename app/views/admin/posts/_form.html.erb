@@ -1,0 +1,40 @@
+<%= form_with(model: [:admin, @post], local: true, class: "space-y-6") do |form| %>
+  <% if @post.errors.any? %>
+    <div class="form-error">
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, class: "block text-gray-700" %>
+    <%= form.text_field :title, class: "form-input mt-1 w-full" %>
+  </div>
+
+  <div>
+    <%= form.label :category_ids, "Categories", class: "block text-gray-700" %>
+    <%= form.collection_select :category_ids, Category.all, :id, :name, {}, { multiple: true, class: "form-select mt-1 w-full" } %>
+  </div>
+
+  <div>
+    <%= form.label :tag_ids, "Tags", class: "block text-gray-700" %>
+    <%= form.collection_select :tag_ids, Tag.all, :id, :name, {}, { multiple: true, class: "form-select mt-1 w-full" } %>
+  </div>
+
+  <div>
+    <%= form.label :status, class: "block text-gray-700" %>
+    <%= form.select :status, options_for_select([['Draft', 'draft'], ['Publish', 'publish']], @post.status), {}, class: "form-select mt-1 w-full" %>
+  </div>
+
+  <div>
+    <%= form.label :content, class: "block text-gray-700" %>
+    <%= form.rich_text_area :content, style: "min-height: 400px; width: 100%; padding: 0.5rem; border: 1px solid #bbb; border-radius: 0.25rem;" %>
+  </div>
+
+  <div>
+    <%= form.submit "Save Post", class: "btn btn-primary mt-4" %>
+  </div>
+<% end %>
