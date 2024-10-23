@@ -78,3 +78,4 @@ end
 gem "devise", "~> 4.9"
 gem "friendly_id", "~> 5.5"
 gem "pagy", "~> 9.1"
+gem "jquery-rails", "~> 4.6"
