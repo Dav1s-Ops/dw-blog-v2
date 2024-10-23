@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   has_and_belongs_to_many :categories
   has_and_belongs_to_many :tags
 
-  has_rich_text :have_content
+  has_rich_text :content
 
   extend FriendlyId
   friendly_id :title, use: :slugged
