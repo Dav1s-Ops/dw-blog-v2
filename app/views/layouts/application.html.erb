@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <!--
+      This comment is here to include classes for Tailwind's purge process.
+      pagy nav pagy.nav current disabled
+    -->
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -12,29 +16,7 @@
   </head>
 
   <body class="bg-gray-100">
-    <% if user_signed_in? %>
-      <nav class="admin-bar">
-        <div class="container mx-auto flex justify-between items-center p-4">
-          <div class="flex items-center space-x-4">
-            <%= link_to 'Dashboard', admin_dashboard_path, class: 'nav-link' %>
-            <%= link_to 'Posts', admin_posts_path, class: 'nav-link' %>
-            <%= link_to 'Categories', admin_categories_path, class: 'nav-link' %>
-            <%= link_to 'Tags', admin_tags_path, class: 'nav-link' %>
-          </div>
-          <div class="flex items-center space-x-4">
-            <%= link_to 'Back to Site', posts_path, class: 'nav-link' %>
-            <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-button' %>
-          </div>
-        </div>
-      </nav>
-    <% else %>
-      <nav class="admin-bar">
-        <div class="container mx-auto flex justify-between items-center p-4">
-          <%= link_to "Davis Weimer's Blog", posts_path, class: 'nav-link' %>
-          <%= link_to 'Login', new_user_session_path, class: 'nav-button-blue' %>
-        </div>
-      </nav>
-    <% end %>
+    <%= render 'layouts/navbar' %>
 
     <div class="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
       <% flash.each do |key, message| %>
@@ -48,14 +30,6 @@
       <%= yield %>
     </main>
 
-    <footer class="footer">
-      <div class="container mx-auto py-4 px-5 flex justify-between items-center">
-        <p class="text-gray-300 text-sm">&copy; <%= Time.current.year %> Davis Weimer</p>
-        <div class="flex space-x-4">
-          <%= link_to 'About', class: 'footer-link' %>
-          <%= link_to 'Contact', class: 'footer-link' %>
-        </div>
-      </div>
-    </footer>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

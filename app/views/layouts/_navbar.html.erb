@@ -1,0 +1,39 @@
+<nav class="admin-bar">
+  <div class="container mx-auto flex justify-between items-center p-4">
+    <!-- Left Side: Logo or Brand Name -->
+    <div>
+      <%= link_to "Davis Weimer's Blog", posts_path, class: 'text-xl font-semibold' %>
+    </div>
+
+    <!-- Right Side: Hamburger Menu and User Actions -->
+    <div class="relative" data-controller="dropdown">
+      <!-- Hamburger Button -->
+      <button data-action="click->dropdown#toggle" class="text-gray-500 focus:outline-none">
+        <!-- Hamburger Icon -->
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+      <!-- Dropdown Menu -->
+      <div data-dropdown-target="menu" class="origin-top-right absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg transform scale-95 opacity-0 transition duration-150 ease-out" hidden>
+        <div class="py-1 text-sm text-center">
+          <% if user_signed_in? %>
+            <%= link_to 'Dashboard', admin_dashboard_path, class: 'block px-4 py-2 text-gray-700 hover:bg-gray-100' %>
+            <%= link_to 'Posts', admin_posts_path, class: 'block px-4 py-2 text-gray-700 hover:bg-gray-100' %>
+            <%= link_to 'Categories', admin_categories_path, class: 'block px-4 py-2 text-gray-700 hover:bg-gray-100' %>
+            <%= link_to 'Tags', admin_tags_path, class: 'block px-4 py-2 text-gray-700 hover:bg-gray-100' %>
+            <div class="border-t my-1"></div>
+            <%= link_to 'Site', posts_path, class: 'block px-4 py-2 text-gray-700 hover:bg-gray-100' %>
+            <%= button_to 'Logout', destroy_user_session_path, method: :delete,
+                class: 'block w-full px-4 py-2 text-gray-700 hover:bg-gray-100' %>
+          <% else %>
+            <%= link_to 'Login', new_user_session_path, class: 'block px-4 py-2 text-gray-700 hover:bg-gray-100' %>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>
