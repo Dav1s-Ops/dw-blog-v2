@@ -21,7 +21,7 @@
           <tr class="hover:bg-gray-100">
             <td class="table-cell"><%= post.id %></td>
             <td class="table-cell">
-              <%= truncate(post.title, length: 20) %>
+              <%= link_to truncate(post.title, length: 20), admin_post_path(post), class: "text-blue-600 hover:underline" %>
             </td>
             <td class="table-cell">
               <%= truncate(post.slug, length: 20) %>

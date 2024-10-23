@@ -10,6 +10,8 @@ class Admin::PostsController < Admin::ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
+
     if @post.save
       redirect_to admin_posts_path, notice: 'Post created.'
     else
@@ -31,6 +33,7 @@ class Admin::PostsController < Admin::ApplicationController
   end
 
   def show
+    @post = Post.friendly.find(params[:id])
   end
 
   def edit
